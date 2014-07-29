@@ -15,6 +15,11 @@
   <%= @song.rating %>
 </p>
 
+<p>
+  <b>Lyrik:</b>
+  <%= audio_tag @song.lyrik, controls: true, class: 'song_lyrik' %>
+</p>
+
 
 <%= link_to 'Edit', edit_song_path(@song) %> |
 <%= link_to 'Back', songs_path %>

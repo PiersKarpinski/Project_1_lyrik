@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140728152705) do
+ActiveRecord::Schema.define(:version => 20140729092413) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20140728152705) do
     t.float    "rating"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.text     "lyrik"
   end
 
   create_table "users", :force => true do |t|

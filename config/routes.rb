@@ -9,7 +9,7 @@ LyrikApp::Application.routes.draw do
     end
   end
 
-  resources :users, only: [:index, :show, :new, :create]
+  resources :users
 
 
   resources :comments
