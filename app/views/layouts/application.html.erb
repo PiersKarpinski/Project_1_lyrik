@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield :title %></title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <% if current_user %>
+    <p> Hello <%= current_user.email %>
+      <%= link_to "logout", destroy_sessions_path, method: :delete %> </p>
+  <% else %>
+    <%= link_to "login", new_session_path %>
+    <%= link_to "sign up", new_user_path %>
+  <% end %>
+  
+  <div id="container">
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+
+  <div class="wrapper">
+    <header>
+      <h1>Lyrik</h1>
+
+      <nav>
+        <ul>
+          <li><%= link_to "home", root_path %></li>
+          <li><%= link_to "explore", explore_index_path %></li>
+           <li><%= link_to "dashboard", dashboard_index_path %></li>
+           <li><%= link_to "upload", genres_path %></li>
+        </ul>
+      </nav>
+
+<%= yield %>
+  </div>
+
+</body>
+</html>
