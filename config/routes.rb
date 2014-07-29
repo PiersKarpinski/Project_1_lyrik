@@ -1,6 +1,6 @@
 LyrikApp::Application.routes.draw do
 
-  get "explore/index"
+  get "discover/index"
   get "dashboard/index"
 
   resources :sessions, only: [:new, :create] do 
