@@ -1,8 +1,12 @@
 class SongsController < ApplicationController
+  before_filter :authenticate_user!, except: :index
+
+
   # GET /songs
   # GET /songs.json
   def index
-    @songs = Song.all
+    @q = Song.search(params[:q])
+    @songs = @q.result(distinct: true)
 
     respond_to do |format|
       format.html # index.html.erb
