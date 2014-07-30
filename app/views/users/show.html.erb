@@ -1,3 +1,6 @@
+<%= content_for :title, 'Profile' %>
+
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -19,6 +22,17 @@
   <b>Image:</b>
   <%= image_tag @user.image, class: 'user_image' %>
 </p>
+
+
+
+<p><%= link_to 'Edit my profile', edit_user_path(current_user) %><p>
+
+
+
+
+
+
+
 
 
 <%= link_to 'Back', users_path %>

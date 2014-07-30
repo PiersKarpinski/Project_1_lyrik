@@ -1,3 +1,6 @@
+<%= content_for :title, 'Users' %>
+
+
 <h1>Listing users</h1>
 
 <table>
@@ -18,7 +21,6 @@
     <td><%= user.email %></td>
     <td><%= image_tag user.image.thumb %></td>
     <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
@@ -26,4 +28,4 @@
 
 <br />
 
-<%= link_to 'New User', new_user_path %>
+<%= link_to 'Back', dashboard_index_path %>

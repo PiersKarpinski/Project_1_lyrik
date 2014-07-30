@@ -1,14 +1,49 @@
 <%= content_for :title, 'Dashboard' %>
 
-
 <h2>Dashboard</h2>
 
-<h4>name</h4>
+<p>
+  <b>My lyriks:</b>
+  <table>
+  <% @songs.each do |song| %>
+    <tr>
+      <td><%= song.user.username %></td>
+      <td><%= song.name %></td>
+      <td><%= audio_tag song.lyrik, controls: true %></td>
+      <td><%= song.created_at %></td>
+      <td><%= song.rating %></td>
+      <td><%= link_to 'Show', song %></td>
+      <td><%= link_to 'Edit', edit_song_path(song) %></td>
+      <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </table>
 
-<h4>username</h4>
+  <br />
+<p>
+  <b>Comments on my lyriks:</b>
 
-<h4>email</h4>
+</p>
 
-<h4>my lyriks</h4>
+<p>
+  <b>My comments:</b>
 
-<h4>my comments</h4>
+</p>
+
+<table>
+  <tr>
+    <li><%= link_to 'users', users_path %></li>
+    <li><%= link_to 'genres', genres_path %></li>
+    <li><%= link_to 'songs', songs_path %></li>
+    <li><%= link_to 'comments', comments_path %></li>
+  </tr>
+</table>
+
+
+
+
+
+
+
+
+

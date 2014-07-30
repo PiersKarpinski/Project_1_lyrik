@@ -1,3 +1,6 @@
+<%= content_for :title, 'Genre' %>
+
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -5,6 +8,16 @@
   <%= @genre.name %>
 </p>
 
+<p>
+  <b>Song(s):</b>
+  <% @genre.songs.each do |song| %>
+    <%= link_to song.name, song %>
+  <% end %>
+
+</p>
+
+
+
 
 <%= link_to 'Edit', edit_genre_path(@genre) %> |
-<%= link_to 'Back', genres_path %>
+<%= link_to 'Back', discover_index_path %>

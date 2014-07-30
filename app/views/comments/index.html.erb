@@ -16,7 +16,6 @@
     <td><%= comment.song_id %></td>
     <td><%= comment.user %></td>
     <td><%= link_to 'Show', comment %></td>
-    <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
     <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
@@ -24,4 +23,4 @@
 
 <br />
 
-<%= link_to 'New Comment', new_comment_path %>
+<%= link_to 'Back', dashboard_index_path %>
