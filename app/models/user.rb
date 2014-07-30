@@ -15,4 +15,7 @@ class User < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
+  def role?(role)
+    self.role.to_s == role.to_s
+  end
 end

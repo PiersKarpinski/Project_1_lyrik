@@ -5,20 +5,21 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 </head>
 <body>  
   <div class="wrapper">
     <header>
+      <a href="/">
       <h1>Lyrik</h1>
-
+      </a>
       <nav>
         <ul>
-          <li class "header"><%= link_to "home", root_path %></li>
-          <li><%= search_form_for @q do |f| %>
-              <%= f.text_field :name_or_user_name_or_user_username_cont %>
-              <%= f.submit %>
-              <% end %></li>
           <li><%= link_to "discover", discover_index_path %></li>
+          <li class="search1"><%= search_form_for @q do |f| %>
+              <%= f.text_field :name_or_user_name_or_user_username_cont, placeholder: "song, user, username" %></li>
+          <li class="search2"><%= f.submit %>
+          <% end %></li>
           <li><%= link_to "dashboard", dashboard_index_path %></li>
           <li><%= link_to "profile", current_user %></li>
           <li><%= link_to "upload", new_song_path %></li>
@@ -26,13 +27,12 @@
                 <%= current_user.email %>
                 <%= link_to "logout", destroy_sessions_path, method: :delete %>
               <% else %>
-                <%= link_to "login", new_session_path %>
-                <%= link_to "sign up", new_user_path %>
+                  <%= link_to "login", new_session_path %></li>
+              <li><%= link_to "sign up", new_user_path %></li>
               <% end %></li>
         </ul>
       </nav>
     </header>
-  </div>
   <div id="container">
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, :id => "flash_#{name}" %>
@@ -42,6 +42,6 @@
 
 
 
-
+</div>
 </body>
 </html>
