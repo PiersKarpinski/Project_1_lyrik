@@ -6,6 +6,13 @@ class User < ActiveRecord::Base
   has_many :songs
   has_many :comments
 
+  validates :name, length: { in: 4..255 }, uniqueness: true
+  validates :username, length: { in: 4..255 }, uniqueness: true
+  validates :email, presence: true, uniqueness: true
+  validates :password, confirmation: true
+  validates :password_confirmation, presence: true
+
+
   mount_uploader :image, ImageUploader
 
 end

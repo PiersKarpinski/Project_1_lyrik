@@ -2,11 +2,12 @@ class SongsController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :edit]
 
 
+
   # GET /songs
   # GET /songs.json
-  def index
-    @songs = Song.all
-
+  def index    
+    # @songs = Song.all
+    @songs = Song.order(:created_at).page(params[:page])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @songs }
@@ -28,7 +29,6 @@ class SongsController < ApplicationController
   # GET /songs/new.json
   def new
     @song = Song.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @song }

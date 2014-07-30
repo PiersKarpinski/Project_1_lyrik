@@ -4,4 +4,8 @@ class Comment < ActiveRecord::Base
   belongs_to :song
   belongs_to :user
 
+  validates :content, length: { in: 1..500 }
+
+
+
 end

@@ -37,10 +37,19 @@
 
 <p>
   <%= link_to "write a comment", new_comment_path %>
-  <% @song.comments.each do |comment| %>
-    <%= comment.name %>
-  <% end %>
+  </p>
 
+<p>    
+  <% @song.comments.each do |comment| %>
+    <%= comment.content %>
+    <% if current_user.id == comment.song.user_id || comment.user_id %>
+    <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+  <% end %>
 </p>
+
+
+
+
 
 

@@ -4,7 +4,7 @@ class DashboardController < ApplicationController
   def index
     @users = User.all
     @genres = Genre.all
-    @songs = Song.all
-    @comments = Comment.all
+    @songs = Song.where(user_id: current_user.id)
+    @comments = Comment.where(user_id: current_user.id)
   end
 end

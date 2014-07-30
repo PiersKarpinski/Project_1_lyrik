@@ -22,8 +22,9 @@ LyrikApp::Application.routes.draw do
 
   root :to => 'index#index'
 
-
-
+  resources :posts do
+    get 'page/:page', action: :index, on: :collection
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -15,19 +15,26 @@
       <td><%= link_to 'Show', song %></td>
       <td><%= link_to 'Edit', edit_song_path(song) %></td>
       <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+     
     </tr>
   <% end %>
   </table>
 
   <br />
 <p>
-  <b>Comments on my lyriks:</b>
-
-</p>
-
-<p>
   <b>My comments:</b>
+  <table>
+  <% @comments.each do |comment| %>
+    <tr>
+      <td><%= comment.content %></td>
+      <td><%= comment.song.name %></td>
+      <td><%= link_to 'Show', comment %></td>
+      <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </table>
 
+  
 </p>
 
 <table>

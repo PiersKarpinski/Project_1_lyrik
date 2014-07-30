@@ -14,8 +14,9 @@
 
   <div class="field">
     <%= f.label :user_id, 'username' %><br />
-    <%= f.number_field :user_id %>
-  </div><div class="field">
+    <%= f.collection_select :user_id, User.all, :id, :name %>
+  </div>
+  <div class="field">
     <%= f.label :name, 'title' %><br />
     <%= f.text_field :name %>
   </div>
@@ -23,13 +24,13 @@
     <%= f.label :lyrik, 'attach' %><br />
     <%= f.file_field :lyrik %>
   </div>
-  <p>
+  <div class="field">
      <% Genre.all.each do |genre| %>
        <%= check_box_tag "song[genre_ids][]", genre.id, @song.genres.include?(genre), id: "song_genre_ids_#{genre.id}" %>
        <%= f.label :genre_ids, genre.name, for: "song_genre_ids_#{genre.id}" %>
        <br>
      <% end %>
-  </p>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

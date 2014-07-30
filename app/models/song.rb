@@ -5,6 +5,9 @@ class Song < ActiveRecord::Base
   has_many :comments
   has_and_belongs_to_many :genres
 
+  validates :name, presence: true, uniqueness: true
+  validates :lyrik, presence: true, uniqueness: true
+
   mount_uploader :lyrik, LyrikUploader
 
 end

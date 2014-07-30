@@ -13,6 +13,7 @@ gem 'ransack'
 gem 'httparty'
 gem 'bcrypt-ruby', '~>3.0.0'
 gem 'rmagick', :require => 'RMagick'
+gem 'kaminari'
 
 group :development, :test do
   gem 'nifty-generators', '>= 0.4.0'
