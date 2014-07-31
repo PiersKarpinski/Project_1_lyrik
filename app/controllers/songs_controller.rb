@@ -1,13 +1,13 @@
 class SongsController < ApplicationController
-  before_filter :authenticate_user!, only: [:new, :edit]
+  before_filter :authenticate_user!, except: :index
 
 
 
   # GET /songs
   # GET /songs.json
   def index    
-    @songs = Song.all
-    @songs = Song.order(:created_at).page(params[:page])
+    @q = Song.search(params[:q])
+    @songs = @q.result.order(:created_at).page(params[:page])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @songs }
@@ -37,7 +37,8 @@ class SongsController < ApplicationController
 
   # GET /songs/1/edit
   def edit
-    @song = Song.find(params[:id])
+    @song = Song.find(params[:id])  
+    authorize! :edit, @song
   end
 
   # POST /songs

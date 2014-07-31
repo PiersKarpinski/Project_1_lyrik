@@ -1,4 +1,6 @@
 class GenresController < ApplicationController
+  before_filter :authenticate_user!
+
   # GET /genres
   # GET /genres.json
   def index
@@ -35,6 +37,8 @@ class GenresController < ApplicationController
   # GET /genres/1/edit
   def edit
     @genre = Genre.find(params[:id])
+    authorize! :edit, @genre
+
   end
 
   # POST /genres

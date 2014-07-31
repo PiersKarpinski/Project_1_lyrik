@@ -7,8 +7,8 @@
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 </head>
-<body>  
-  <div class="wrapper">
+<body style="<%= show_user_bg(current_user) %>">  
+  <div class="wrapper <%= show_default_bg(current_user) %>">
     <header>
       <a href="/">
       <h1>Lyrik</h1>

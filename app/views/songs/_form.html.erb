@@ -23,7 +23,7 @@
   </div>
   <div class="field">
     <%= f.label :lyrik, 'attach' %><br />
-    <%= f.file_field :lyrik %>
+    <%= f.file_field :lyrik, value: @song.lyrik %>
   </div>
   <div class="field">
      <% Genre.all.each do |genre| %>

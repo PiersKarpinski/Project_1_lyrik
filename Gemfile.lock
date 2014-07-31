@@ -59,6 +59,7 @@ GEM
     erubis (2.7.0)
     execjs (2.2.1)
     hike (1.2.3)
+    hirb (0.7.2)
     httparty (0.13.1)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
@@ -159,6 +160,7 @@ DEPENDENCIES
   cancan
   carrierwave
   coffee-rails (~> 3.2.1)
+  hirb
   httparty
   jquery-rails
   kaminari

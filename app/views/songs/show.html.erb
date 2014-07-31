@@ -26,9 +26,7 @@
   <% @song.comments.each do |comment| %>
     <%= comment.created_at.to_formatted_s(:long) %></br>
     <%= comment.content %></br>
-    <% if current_user.id == comment.song.user_id || comment.user_id %>
-    <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <% end %>
+
   <% end %>
 </p>
 </div>

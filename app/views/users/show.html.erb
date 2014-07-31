@@ -14,6 +14,11 @@
 </p>
 
 <p>
+  <b>Role:</b>
+  <%= @user.role %>
+</p>
+
+<p>
   <b>Email:</b>
   <%= @user.email %>
 </p>
@@ -26,5 +31,5 @@
 
 
 
-<p><%= link_to 'Edit my profile', edit_user_path(current_user) %><p>
+<p><%= link_to 'Edit my profile', edit_user_path(@user) %><p>
 </div>
