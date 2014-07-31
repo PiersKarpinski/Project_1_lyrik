@@ -6,7 +6,7 @@ class SongsController < ApplicationController
   # GET /songs
   # GET /songs.json
   def index    
-    # @songs = Song.all
+    @songs = Song.all
     @songs = Song.order(:created_at).page(params[:page])
     respond_to do |format|
       format.html # index.html.erb

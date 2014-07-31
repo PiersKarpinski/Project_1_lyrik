@@ -12,8 +12,9 @@
     </div>
   <% end %>
 
+<div class="box">
   <div class="field">
-    <%= f.label :user_id, 'username' %><br />
+    <%= f.label :user_id, 'author' %><br />
     <%= f.collection_select :user_id, User.all, :id, :name %>
   </div>
   <div class="field">
@@ -34,4 +35,5 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+</div>
 <% end %>

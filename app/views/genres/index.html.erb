@@ -1,15 +1,9 @@
 <%= content_for :title, 'Genres' %>
 
-
-<h1>Listing genres</h1>
+<div class="genres">
+<h2>All genres</h2>
 
 <table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
 <% @genres.each do |genre| %>
   <tr>
@@ -23,4 +17,4 @@
 
 <br />
 
-<%= link_to 'Back', dashboard_index_path %>
+</div>

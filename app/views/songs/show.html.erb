@@ -1,45 +1,28 @@
 <%= content_for :title, 'Lyrik' %>
 
-
-<%= link_to 'Edit', edit_song_path(@song) %> |
-<%= link_to 'All songs in genre', genre_path %>
-
 <p id="notice"><%= notice %></p>
 
-<p>
-  <%= image_tag @song.user.image, class: 'user_image' %>
-</p>
+<div class="box">
+<h2>Author:</h2>
+<p><%= @song.user.username %></p>
+<p><%= image_tag @song.user.image, class: 'user_image' %></p>
 
-<p>
-  <%= @song.user.username %>
-</p>
+<h2>Title:</h2>
+<p><%= @song.name %></p>
+<p><%= audio_tag @song.lyrik, controls: true, class: 'song_lyrik' %></p>
 
-<p>
-  <%= @song.name %>
-</p>
-
-
-
-<p>
-  <%= @song.rating %>
-</p>
-
-<p>
-  <%= audio_tag @song.lyrik, controls: true, class: 'song_lyrik' %>
-</p>
-
-<p>
-  <% @song.genres.each do |genre| %>
+<h2>Genre(s):</h2>
+<p><% @song.genres.each do |genre| %>
     <%= genre.name %>
-  <% end %>
+  <% end %></p>
 
-</p>
+<p><%= link_to 'Edit', edit_song_path(@song) %> | 
+  <%= link_to 'All songs in genre', genre_path %> | 
+  <%= link_to "Leave a comment", new_comment_path %></p>
+</div>
 
-<p>
-  <%= link_to "write a comment", new_comment_path %>
-  </p>
-
-<p>    
+<div class="box">
+<h2>Comments:</h2>    
   <% @song.comments.each do |comment| %>
     <%= comment.content %>
     <% if current_user.id == comment.song.user_id || comment.user_id %>
@@ -47,6 +30,7 @@
     <% end %>
   <% end %>
 </p>
+</div>
 
 
 

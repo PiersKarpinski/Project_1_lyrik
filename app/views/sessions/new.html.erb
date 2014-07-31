@@ -1,7 +1,8 @@
 <%= content_for :title, 'Log in' %>
 
 
-<h1>Log in</h1>
+<h2>Log in</h2>
+<div class="box">
 <%= form_tag sessions_path do %>
   <div class="field">
     <%= label_tag :email %>
@@ -13,4 +14,5 @@
   </div>
   <div class="actions"><%= submit_tag "log in" %></div>
 <% end %>
+</div>
 
