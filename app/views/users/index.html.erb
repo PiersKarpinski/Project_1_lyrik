@@ -1,17 +1,13 @@
 <%= content_for :title, 'Users' %>
 
-
-<h1>Listing users</h1>
-
+<div class="box">
+<h2>Listing users</h2>
 <table>
   <tr>
     <th>Name</th>
     <th>Username</th>
     <th>Email</th>
     <th>Image</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @users.each do |user| %>
@@ -29,3 +25,4 @@
 <br />
 
 <%= link_to 'Back', dashboard_index_path %>
+</div>

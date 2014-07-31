@@ -1,20 +1,20 @@
 <h1>Listing comments</h1>
 
+<div class="box">
 <table>
   <tr>
     <th>Content</th>
     <th>Song</th>
     <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Date</th>
   </tr>
 
 <% @comments.each do |comment| %>
   <tr>
     <td><%= comment.content %></td>
-    <td><%= comment.song_id %></td>
-    <td><%= comment.user %></td>
+    <td><%= comment.song.name %></td>
+    <td><%= comment.user.name %></td>
+    <td><%= comment.created_at.to_formatted_s(:long) %></td>
     <td><%= link_to 'Show', comment %></td>
     <% if current_user.id == comment.user_id%>
     <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -22,7 +22,4 @@
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'Back', dashboard_index_path %>
+</div>

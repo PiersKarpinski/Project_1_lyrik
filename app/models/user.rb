@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :image, :name, :username, :password, :password_confirmation
+  attr_accessible :email, :image, :name, :username, :password, :password_confirmation, :personalise
 
     has_secure_password
 
@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
 
 
   mount_uploader :image, ImageUploader
+  mount_uploader :personalise, ImageUploader
+
 
   def role?(role)
     self.role.to_s == role.to_s
