@@ -9,7 +9,7 @@
 }
 
 .wrapper-bg {
-  background-image: url('http://www.clipartbest.com/cliparts/9i4/zB4/9i4zB4GiE.jpeg');
+  background-image: url('treble_clef.jpg');
 }
 
 .home {
@@ -32,7 +32,33 @@
   padding: 0px 20px 10px 10px; 
   display: inline-block;
   font-family: 'Lato', sans-serif;
-  font-size: 20px
+  font-size: 20px;
+}
+
+.discover_box {
+  background: -webkit-linear-gradient(top, rgba(255,72,0,.8), rgba(255,72,0,.3));
+  border-radius: 10px;
+  border: 2px solid black;
+  vertical-align: top;
+  margin-top: 5px;  
+  padding: 0px 20px 10px 10px; 
+  display: inline-block;
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  max-width: 850px;
+}
+
+.comment_box {
+    background: -webkit-linear-gradient(top, rgba(255,72,0,.8), rgba(255,72,0,.3));
+    border-radius: 10px;
+    border: 2px solid black;
+    vertical-align: top;
+    margin-top: 5px;  
+    padding: 0px 20px 10px 10px; 
+    display: inline-block;
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    max-width: 620px;
 }
 
 .comment {

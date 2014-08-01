@@ -1,16 +1,15 @@
 <%= form_for(@song) do |f| %>
   
-  <% if @song.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@song.errors.count, "error") %> prohibited this song from being saved:</h2>
-
-      <ul>
-      <% @song.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<% if @song.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@song.errors.count, "error") %> prohibited this song from being saved:</h2>
+    <ul>
+    <% @song.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 
 <div class="box">
   <div class="field">
@@ -26,11 +25,11 @@
     <%= f.file_field :lyrik, value: @song.lyrik %>
   </div>
   <div class="field">
-     <% Genre.all.each do |genre| %>
-       <%= check_box_tag "song[genre_ids][]", genre.id, @song.genres.include?(genre), id: "song_genre_ids_#{genre.id}" %>
-       <%= f.label :genre_ids, genre.name, for: "song_genre_ids_#{genre.id}" %>
-       <br>
-     <% end %>
+    <% Genre.all.each do |genre| %>
+    <%= check_box_tag "song[genre_ids][]", genre.id, @song.genres.include?(genre), id: "song_genre_ids_#{genre.id}" %>
+    <%= f.label :genre_ids, genre.name, for: "song_genre_ids_#{genre.id}" %>
+    <br>
+    <% end %>
   </div>
   <div class="actions">
     <%= f.submit %>

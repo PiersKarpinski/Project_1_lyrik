@@ -1,51 +1,39 @@
 class GenresController < ApplicationController
   before_filter :authenticate_user!
 
-  # GET /genres
-  # GET /genres.json
   def index
     @genres = Genre.all
-
+    authorize! :index, Genre
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @genres }
     end
   end
 
-  # GET /genres/1
-  # GET /genres/1.json
   def show
     @genre = Genre.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @genre }
     end
   end
 
-  # GET /genres/new
-  # GET /genres/new.json
   def new
     @genre = Genre.new
-
+    authorize! :new, @genre
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @genre }
     end
   end
 
-  # GET /genres/1/edit
   def edit
     @genre = Genre.find(params[:id])
     authorize! :edit, @genre
-
   end
 
-  # POST /genres
-  # POST /genres.json
   def create
     @genre = Genre.new(params[:genre])
-
     respond_to do |format|
       if @genre.save
         format.html { redirect_to @genre, notice: 'Genre was successfully created.' }
@@ -57,11 +45,8 @@ class GenresController < ApplicationController
     end
   end
 
-  # PUT /genres/1
-  # PUT /genres/1.json
   def update
     @genre = Genre.find(params[:id])
-
     respond_to do |format|
       if @genre.update_attributes(params[:genre])
         format.html { redirect_to @genre, notice: 'Genre was successfully updated.' }
@@ -73,12 +58,10 @@ class GenresController < ApplicationController
     end
   end
 
-  # DELETE /genres/1
-  # DELETE /genres/1.json
   def destroy
     @genre = Genre.find(params[:id])
+    authorize! :destroy, @genre
     @genre.destroy
-
     respond_to do |format|
       format.html { redirect_to genres_url }
       format.json { head :no_content }

@@ -1,22 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <div class="box">
-<p>
-  <b>Content:</b>
-  <%= @comment.content %>
-</p>
+  <p>
+    <b>Content:</b>
+    <%= @comment.content %>
+  </p>
 
-<p>
-  <b>Song:</b>
-  <%= @comment.song.name %>
-</p>
+  <p>
+    <b>Song:</b>
+    <%= @comment.song_id %>
+  </p>
 
-<p>
-  <b>User:</b>
-  <%= @comment.user.name %>
-</p>
+  <p>
+    <b>User:</b>
+    <%= @comment.user.name %>
+  </p>
 
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', comments_path %>
+  <%= link_to 'Edit', edit_comment_path(@comment) %> |
+  <%= link_to 'Back', discover_index_path %>
 
 </div>

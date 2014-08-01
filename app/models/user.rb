@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
+  has_secure_password
+
   attr_accessible :email, :image, :name, :username, :password, :password_confirmation, :personalise, :role
 
-    has_secure_password
+    
 
   has_many :songs
   has_many :comments

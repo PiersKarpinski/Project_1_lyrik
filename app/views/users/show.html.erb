@@ -1,35 +1,27 @@
 <%= content_for :title, 'Profile' %>
 
 <div class="box">
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @user.name %>
-</p>
-
-<p>
-  <b>Username:</b>
-  <%= @user.username %>
-</p>
-
-<p>
-  <b>Role:</b>
-  <%= @user.role %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
-
-<p>
-  <b>Image:</b>
-  <br>
-  <%= image_tag @user.image, class: 'user_image' %>
-</p>
-
-
-
-<p><%= link_to 'Edit my profile', edit_user_path(@user) %><p>
+  <p id="notice"><%= notice %></p>
+  <p>
+    <b>Name:</b>
+    <%= @user.name %>
+  </p>
+  <p>
+    <b>Username:</b>
+    <%= @user.username %>
+  </p>
+  <p>
+    <b>Role:</b>
+    <%= @user.role %>
+  </p>
+  <p>
+    <b>Email:</b>
+    <%= @user.email %>
+  </p>
+  <p>
+    <b>Image:</b>
+    <br>
+    <%= image_tag @user.image, class: 'user_image' %>
+  </p>
+  <p><%= link_to 'Edit my profile', edit_user_path(@user) %><p>
 </div>

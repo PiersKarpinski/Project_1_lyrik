@@ -3,32 +3,31 @@
 <p id="notice"><%= notice %></p>
 
 <div class="box">
-<h2>Author:</h2>
-<p><%= @song.user.username %></p>
-<p><%= image_tag @song.user.image, class: 'user_image' %></p>
+  <h2>Author:</h2>
+  <p><%= @song.user.username %></p>
+  <p><%= image_tag @song.user.image, class: 'user_image' %></p>
+  
+  <h2>Title:</h2>
+  <p><%= @song.name %></p>
+  <p><%= audio_tag @song.lyrik, controls: true, class: 'song_lyrik' %></p>
 
-<h2>Title:</h2>
-<p><%= @song.name %></p>
-<p><%= audio_tag @song.lyrik, controls: true, class: 'song_lyrik' %></p>
+  <h2>Genre(s):</h2>
+  <p><% @song.genres.each do |genre| %>
+      <%= genre.name %>
+    <% end %></p>
 
-<h2>Genre(s):</h2>
-<p><% @song.genres.each do |genre| %>
-    <%= genre.name %>
-  <% end %></p>
-
-<p><%= link_to 'Edit', edit_song_path(@song) %> | 
-  <%= link_to 'All songs in genre', genre_path %> | 
-  <%= link_to "Leave a comment", new_comment_path %></p>
+  <p><%= link_to 'Edit', edit_song_path(@song) %> | 
+    <%= link_to "Leave a comment", new_comment_path %></p>
 </div>
 
-<div class="box">
-<h2>Comments:</h2>    
-  <% @song.comments.each do |comment| %>
-    <%= comment.created_at.to_formatted_s(:long) %></br>
-    <%= comment.content %></br>
-
-  <% end %>
-</p>
+<div class="comment_box">
+  <h2>Comments:</h2>    
+    <% @song.comments.each do |comment| %>
+      <%= comment.user.name %> |
+      <%= comment.created_at.to_formatted_s(:long) %></br>
+      <%= comment.content %></br>
+      <%= link_to 'Delete comment', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
 </div>
 
 

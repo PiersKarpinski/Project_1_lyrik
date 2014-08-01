@@ -1,29 +1,29 @@
 <%= content_for :title, 'Discover' %>
 
 <div class="box">
-<h2>Genres</h2>
-<table>
-  <% Genre.all.each do |genre| %>
-    <tr>
-      <td><%= link_to genre.name, genre %></td>
-    </tr>
-  <% end %>
+  <h2>Genres</h2>
+  <table>
+    <% Genre.all.each do |genre| %>
+      <tr>
+        <td><%= link_to genre.name, genre %></td>
+      </tr>
+    <% end %>
   </table>
 </div>
 
-<div class='box'>
-<h2>Songs</h2>
-<table>
-  <% @songs.each do |song| %>
-    <tr>
-      <td><%= image_tag song.user.image.thumb %></td>
-      <td><%= song.user.username %></td>
-      <td><%= song.name %></td>
-      <td><%= audio_tag song.lyrik, controls: true %></td>
-      <td><%= song.created_at.to_formatted_s(:long) %></td>
-      <td><%= link_to 'Show', song %></td>
-    </tr>
-  <% end %>
-  <div id='paginate'><%= paginate @songs %></div>
-</table>
+<div class='discover_box'>
+  <h2>Songs</h2>
+  <table>
+    <% @songs.each do |song| %>
+      <tr>
+        <td><%= image_tag song.user.image.thumb %></td>
+        <td><%= song.user.username %></td>
+        <td><%= song.name %></td>
+        <td><%= audio_tag song.lyrik, controls: true %></td>
+        <td><%= song.created_at.to_formatted_s(:long) %></td>
+        <td><%= link_to 'Show', song %></td>
+      </tr>
+    <% end %>
+    <div id='paginate'><%= paginate @songs %></div>
+  </table>
 </div>

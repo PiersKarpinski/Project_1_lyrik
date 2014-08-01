@@ -1,7 +1,7 @@
 module ApplicationHelper
   def show_user_bg(user)
     if user
-      "background:transparent url(#{user.personalise}) fixed left top;"
+      "background:transparent url(#{user.personalise}) fixed left bottom;"
     end
   end
 
